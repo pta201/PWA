@@ -7,12 +7,11 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      base: "/",
       includeAssets: ["assets/*.png"],
       manifest: {
-        name: "My Awesome App",
-        short_name: "MyApp",
-        description: "My Awesome App description",
+        name: "My Todo App",
+        short_name: "Todo",
+        description: "My Todo App description",
         theme_color: "#ffffff",
         icons: [
           {
@@ -29,7 +28,6 @@ export default defineConfig({
             src: "pwa-512-512.png",
             sizes: "512x512",
             type: "image/png",
-            purpose: "any",
           },
           {
             src: "assets/maskable-icon-192.maskable.png",
@@ -46,7 +44,6 @@ export default defineConfig({
         ],
         background_color: "#e0cc3b",
         display: "standalone",
-        scope: "/",
         start_url: "/",
         orientation: "portrait",
       },
