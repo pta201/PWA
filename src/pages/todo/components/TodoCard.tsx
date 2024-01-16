@@ -1,44 +1,21 @@
-import { Stack, useColorModeValue, Heading, Box, Text } from "@chakra-ui/react";
+import {
+  useColorModeValue,
+  Heading,
+  Box,
+  Text,
+  VStack,
+  Tag,
+  Flex,
+  Stack,
+} from "@chakra-ui/react";
+import { Todo, ITodoTag } from "../type";
 import { PropsWithChildren } from "react";
-import { Todo } from "../type";
+import { isEmpty } from "lodash";
 
 export const TodoCard = (props: PropsWithChildren) => {
   const { children } = props;
 
   return <Box>{children}</Box>;
-};
-
-export const TodoContent = (props: PropsWithChildren) => {
-  const { children } = props;
-
-  return (
-    <Stack
-      bg={useColorModeValue("white", "gray.800")}
-      boxShadow={"lg"}
-      p={8}
-      rounded={"xl"}
-      align={"center"}
-      pos={"relative"}
-      _after={{
-        content: `""`,
-        w: 0,
-        h: 0,
-        borderLeft: "solid transparent",
-        borderLeftWidth: 16,
-        borderRight: "solid transparent",
-        borderRightWidth: 16,
-        borderTop: "solid",
-        borderTopWidth: 16,
-        borderTopColor: useColorModeValue("white", "gray.800"),
-        pos: "absolute",
-        bottom: "-16px",
-        left: "50%",
-        transform: "translateX(-50%)",
-      }}
-    >
-      {children}
-    </Stack>
-  );
 };
 
 export const TodoTitle = (props: PropsWithChildren) => {
@@ -64,15 +41,33 @@ export const TodoText = (props: PropsWithChildren) => {
     </Text>
   );
 };
+const TodoContent = ({ children }: PropsWithChildren) => {
+  return <Box>{children}</Box>;
+};
+const TodoTag = ({ color, name }: ITodoTag) => {
+  return <Tag colorScheme={color}>{name}</Tag>;
+};
+const TodoTagList = ({ tags }: { tags: ITodoTag[] }) => {
+  if (isEmpty(tags)) return <></>;
+  return (
+    <Flex gap={8} justify={"start"}>
+      {tags?.map((item) => (
+        <TodoTag color={item.color} name={item.name} key={item.name} />
+      ))}
+    </Flex>
+  );
+};
 export const TodoItem = ({
   content = "11:00 Mo (Jan 30)",
   title = "Call Mom",
+  tags,
 }: Todo) => {
   return (
     <TodoCard>
       <TodoContent>
         <TodoTitle>{title}</TodoTitle>
         <TodoText>{content}</TodoText>
+        <TodoTagList tags={tags} />
       </TodoContent>
     </TodoCard>
   );

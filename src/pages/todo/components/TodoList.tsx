@@ -2,26 +2,18 @@ import { TodoItem } from "./TodoCard";
 import { Flex } from "@chakra-ui/react";
 import { Todo } from "../type";
 
-export default function TodoList() {
-  const todos = [
-    {
-      title: "Todo 1",
-      content: "Todo 1 content",
-    },
-    {
-      title: "Todo 2",
-      content: "Todo 2 content",
-    },
-    {
-      title: "Todo 3",
-      content: "Todo 3 content",
-    },
-  ];
+export default function TodoList({ todos }: { todos: Todo[] }) {
   return (
     <Flex>
-      {todos.map((todo: Todo, index: number) => {
+      {todos?.map((todo: Todo, index: number) => {
         return (
-          <TodoItem key={index} content={todo.content} title={todo.title} />
+          <TodoItem
+            key={index}
+            content={todo.content}
+            title={todo.title}
+            status={todo.status}
+            tags={todo.tags}
+          />
         );
       })}
     </Flex>

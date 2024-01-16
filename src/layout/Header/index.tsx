@@ -14,13 +14,16 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { NavLink } from "../../components/NavLink";
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         <Box>Logo</Box>
-
+        <Flex>
+          <NavLink href="/todo">Todos</NavLink>
+        </Flex>
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>
             <Button onClick={toggleColorMode}>

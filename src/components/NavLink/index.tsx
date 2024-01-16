@@ -1,22 +1,24 @@
-import { useColorModeValue, Box } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
+import { NavLink as ReactRouterNavLink } from "react-router-dom";
 
-export const NavLink = (props: PropsWithChildren) => {
-  const { children } = props;
+export const NavLink = (props: PropsWithChildren & { href: string }) => {
+  const { children, href } = props;
 
   return (
-    <Box
-      as="a"
-      px={2}
-      py={1}
-      rounded={"md"}
-      _hover={{
-        textDecoration: "none",
-        bg: useColorModeValue("gray.200", "gray.700"),
+    <ReactRouterNavLink to={href}>
+      {({ isActive }) => {
+        return (
+          <Button
+            colorScheme="teal"
+            size="sm"
+            variant={isActive ? "solid" : "ghost"}
+            as={"a"}
+          >
+            {children}
+          </Button>
+        );
       }}
-      href={"#"}
-    >
-      {children}
-    </Box>
+    </ReactRouterNavLink>
   );
 };

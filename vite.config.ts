@@ -42,10 +42,14 @@ export default defineConfig({
             purpose: "maskable",
           },
         ],
+
         background_color: "#e0cc3b",
         display: "standalone",
-        start_url: "/",
+        start_url: "/todo",
         orientation: "portrait",
+      },
+      devOptions: {
+        enabled: true,
       },
     }),
   ],
