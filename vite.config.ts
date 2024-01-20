@@ -1,10 +1,19 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import basicSsl from "@vitejs/plugin-basic-ssl";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    basicSsl({
+      // /** name of certification */
+      // name: "test",
+      // /** custom trust domains */
+      // domains: ["*.custom.com"],
+      // /** custom certification directory */
+      // certDir: "/Users/.../.devServer/cert",
+    }),
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["assets/*.png"],

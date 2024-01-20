@@ -1,5 +1,5 @@
 import TodoList from "./components/TodoList";
-import todos from "./todos.json";
+import { generateDummyData } from "./type";
 export default function TodoMain() {
-  return <TodoList todos={todos} />;
+  return <TodoList todos={generateDummyData()} />;
 }

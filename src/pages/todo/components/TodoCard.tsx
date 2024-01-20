@@ -3,10 +3,8 @@ import {
   Heading,
   Box,
   Text,
-  VStack,
   Tag,
   Flex,
-  Stack,
 } from "@chakra-ui/react";
 import { Todo, ITodoTag } from "../type";
 import { PropsWithChildren } from "react";

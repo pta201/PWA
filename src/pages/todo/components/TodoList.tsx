@@ -1,8 +1,10 @@
 import { TodoItem } from "./TodoCard";
 import { Flex } from "@chakra-ui/react";
 import { Todo } from "../type";
-
-export default function TodoList({ todos }: { todos: Todo[] }) {
+interface TodoListProps {
+  todos: Todo[];
+}
+export default function TodoList({ todos }: TodoListProps) {
   return (
     <Flex>
       {todos?.map((todo: Todo, index: number) => {
