@@ -13,7 +13,7 @@ const useUserLocation = () => {
   const [location, setLocation] = useState<UserLocation>();
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
+    navigator.geolocation.watchPosition(
       (position: GeolocationPosition) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;

@@ -23,6 +23,7 @@ export default function Header() {
         <Box>Logo</Box>
         <Flex>
           <NavLink href="/todo">Todos</NavLink>
+          <NavLink href="/location">Location</NavLink>
         </Flex>
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>

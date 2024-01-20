@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "../layout";
 import TodoMain from "../pages/todo";
+import LocationMain from "../pages/location";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "todo",
         element: <TodoMain />,
+      },
+      {
+        path: "location",
+        element: <LocationMain />,
       },
     ],
   },
