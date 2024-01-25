@@ -24,6 +24,7 @@ export default function Header() {
         <Flex>
           <NavLink href="/todo">Todos</NavLink>
           <NavLink href="/location">Location</NavLink>
+          <NavLink href="/spam">Spam</NavLink>
         </Flex>
         <Flex alignItems={"center"}>
           <Stack direction={"row"} spacing={7}>

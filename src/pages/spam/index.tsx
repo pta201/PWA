@@ -6,6 +6,7 @@ interface Fetcher {
   onSuccess: () => void;
   onError: () => void;
 }
+
 const fetcher = async ({ url, onSuccess, onError }: Fetcher) => {
   return await fetch(url).then((res) => {
     if (res.ok) {
@@ -16,9 +17,11 @@ const fetcher = async ({ url, onSuccess, onError }: Fetcher) => {
     }
   });
 };
+const DEFAULT_DELAY = 5;
 export default function Spam() {
   const [url, setUrl] = useState("");
   const [number, setNumber] = useState(0);
+  const [delay, setDelay] = useState(DEFAULT_DELAY);
 
   const handleUrlChange: InputProps["onChange"] = (e) => {
     setUrl(e.target.value as string);
@@ -27,23 +30,28 @@ export default function Spam() {
   const handleNumberChange: InputProps["onChange"] = (e) => {
     setNumber(Number(e.target.value));
   };
+  const handleDelayChange: InputProps["onChange"] = (e) => {
+    setDelay(Number(e.target.value));
+  };
 
   const handleSuccess = () => {
     setNumber((prev) => prev - 1);
   };
 
   const handleError = () => {};
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     for (let i = 0; i < number; i++) {
-      await fetcher({
-        url,
-        onSuccess: handleSuccess,
-        onError: handleError,
-      });
+      setTimeout(() => {
+        fetcher({
+          url,
+          onSuccess: handleSuccess,
+          onError: handleError,
+        });
+      }, delay * 1000); // Delay in milliseconds (1000ms = 1 second)
     }
     setUrl("");
+    setDelay(DEFAULT_DELAY);
   };
-
   return (
     <VStack>
       <Input
@@ -56,6 +64,12 @@ export default function Spam() {
         placeholder="Number"
         value={number}
         onChange={handleNumberChange}
+      />
+      <Input
+        type="number"
+        placeholder="Delay"
+        value={number}
+        onChange={handleDelayChange}
       />
       <Button onClick={handleSubmit}>Submit</Button>
     </VStack>
