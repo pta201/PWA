@@ -1,4 +1,4 @@
-import { Button, Input, InputProps, VStack } from "@chakra-ui/react";
+import { Button, Input, InputProps, VStack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 interface Fetcher {
@@ -59,12 +59,15 @@ export default function Spam() {
         value={url}
         onChange={handleUrlChange}
       />
+      <Text>So luong bai viet</Text>
       <Input
         type="number"
         placeholder="Number"
         value={number}
         onChange={handleNumberChange}
       />
+      <Text>Delay</Text>
+
       <Input
         type="number"
         placeholder="Delay"
