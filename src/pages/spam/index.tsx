@@ -62,7 +62,7 @@ export default function Spam() {
           value={url}
           onChange={handleUrlChange}
         />
-        <Text>So luong bai viet</Text>
+        <Text>So luong</Text>
         <Input
           type="number"
           placeholder="Number"
