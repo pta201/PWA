@@ -54,6 +54,8 @@ export default function Spam() {
   };
   return (
     <VStack>
+      <Text>Url</Text>
+
       <Input
         placeholder="URL bai viet"
         value={url}
