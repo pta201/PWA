@@ -1,10 +1,10 @@
 import { Button, Input, InputProps, VStack } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface Fetcher {
   url: string;
-  onSuccess: (data: any) => void;
-  onError: (error: any) => void;
+  onSuccess: () => void;
+  onError: () => void;
 }
 const fetcher = async ({ url, onSuccess, onError }: Fetcher) => {
   return await fetch(url).then((res) => {
