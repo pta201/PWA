@@ -53,30 +53,34 @@ export default function Spam() {
     setDelay(DEFAULT_DELAY);
   };
   return (
-    <VStack>
-      <Text>Url</Text>
+    <div>
+      <VStack>
+        <Text>Url</Text>
 
-      <Input
-        placeholder="URL bai viet"
-        value={url}
-        onChange={handleUrlChange}
-      />
-      <Text>So luong bai viet</Text>
-      <Input
-        type="number"
-        placeholder="Number"
-        value={number}
-        onChange={handleNumberChange}
-      />
-      <Text>Delay</Text>
+        <Input
+          placeholder="URL bai viet"
+          value={url}
+          onChange={handleUrlChange}
+        />
+        <Text>So luong bai viet</Text>
+        <Input
+          type="number"
+          placeholder="Number"
+          value={number}
+          onChange={handleNumberChange}
+        />
+        <Text>Delay</Text>
 
-      <Input
-        type="number"
-        placeholder="Delay"
-        value={number}
-        onChange={handleDelayChange}
-      />
-      <Button onClick={handleSubmit}>Submit</Button>
-    </VStack>
+        <Input
+          type="number"
+          placeholder="Delay"
+          value={number}
+          onChange={handleDelayChange}
+        />
+        <Button colorScheme="teal" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </VStack>
+    </div>
   );
 }
