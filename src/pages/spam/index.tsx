@@ -74,7 +74,7 @@ export default function Spam() {
         <Input
           type="number"
           placeholder="Delay"
-          value={number}
+          value={delay}
           onChange={handleDelayChange}
         />
         <Button colorScheme="teal" onClick={handleSubmit}>
